@@ -1,0 +1,12 @@
+	<h3>Login</h3>
+	<form>
+		<label>username</label>
+		<input type='text' ng-model='user.username' 	/>
+
+		<label>password</label>
+		<input type='text' ng-model='user.password' 	/>
+		<button ng-click='login(user)'>Submit</button>
+
+	</form>
+	<br/>
+	<div>{{status}}</div>

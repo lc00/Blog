@@ -22,8 +22,8 @@ app.use(passport.initialize());
 userRoutes(app);
 webRoutes(app);
 
-
-var port = 7000;
+// process is window(global object) for node
+var port = process.env.PORT;
 
 var server = app.listen(port, function(){
 	console.log('this app is listening at http://localhost/' + port);

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app='blog'>
+<head>
+	<title>LC's Blog</title>
+	<!-- START BOWER CSS INJECT -->
+	
+	<!-- END INJECT -->
+
+	<!-- START LOCAL CSS INJECT -->
+	
+	<!-- END INJECT -->
+
+</head>
+<body>
+	<ul>
+		<li><a ui-sref='signUp'>Sign Up</a></li>
+		<li>
+			<a ui-sref='login'>
+				<span ng-show='!loggedin'>Login</span>
+				<span ng-show='loggedin' ng-click='logout()'>Logout</span>
+			</a>
+		</li>
+		<!-- <li ng-show='loggedin'><a ui-sref='logout' ng-click='logout()'></a></li> -->
+		<li><a ui-sref='myProfile'>My Profile</a></li>
+		</ul>
+
+	<div ui-view></div>
+
+	<!-- START BOWER JS INJECT -->
+	<script src="/lib/angular/angular.js"></script>
+	<script src="/lib/angular-ui-router/release/angular-ui-router.js"></script>
+	<!-- END INJECT -->
+
+	<!-- START LOCAL JS INJECT -->
+	<script src="/scripts/app.js"></script>
+	<script src="/scripts/controllers/createUserController.js"></script>
+	<script src="/scripts/controllers/loginController.js"></script>
+	<script src="/scripts/controllers/logoutController.js"></script>
+	<script src="/scripts/controllers/myProfileController.js"></script>
+	<!-- END INJECT -->
+
+<!--
+	<script src='/lib/angular/angular.js'></script>
+	<script src='/lib/angular-ui-router/release/angular-ui-router.js'></script>
+	<script src='scripts/app.js'></script>
+	<script src='scripts/controllers/createUserController.js'></script>
+	<script src='scripts/controllers/loginController.js'></script>
+	<script src='scripts/controllers/logoutController.js'></script>
+	<script src='scripts/controllers/myProfileController.js'></script>
+-->
+</body>
+</html>

@@ -1,0 +1,13 @@
+	<h3>Sign Up</h3>
+	<form>
+		<label>username</label>
+		<input type='text' ng-model='user.username' 	/>
+		<label>email</label>
+		<input type='email' ng-model='user.email' 	/>
+		<label>password</label>
+		<input type='text' ng-model='user.password' 	/>
+		<button ng-click='signUp(user)'>Submit</button>
+
+	</form>
+	<br/>
+	<div>{{status}}</div>
