@@ -25,7 +25,7 @@ var userSchema = mongoose.Schema({
 	tokenCreatedTime: {
 		type: Number,
 		unique: true
-	}
+	}		
 
 });
 
