@@ -181,6 +181,9 @@ module.exports = function(grunt) {
 			prod: {
 				files: {
 					'client/prod/scripts/threePages.min.js': allDevJsFiles
+				},
+				options: {
+					mangle: false
 				}
 			}
 		},
