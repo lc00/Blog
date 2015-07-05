@@ -52,7 +52,7 @@ userSchema.pre('save', function(next){
 
     // If there was an error, allow execution to move to the next middleware
 		if(err) return next(err);
-
+ 
 		// If the encryption succeeded, then replace the un-encrypted password
     // in the given document with the newly encrypted one.
 		user.password = hash;
