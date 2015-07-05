@@ -5,12 +5,11 @@ var bowerCssFiles = [
 	'bower_components/bootstrap/dist/css/bootstrap.css'
 ];
 
-var allDevJsFiles = [
-	'bower_components/angular/angular.js', 'client/dev/scripts/**/*.js'
-];
-var allDevCssFiles = [
-	'bower_components/bootstrap/dist/css/bootstrap.css', 'client/dev/**/*.css'
-];
+var allDevJsFiles = bowerJsFiles.concat(['client/dev/scripts/**/*.js'
+]);
+var allDevCssFiles = bowerCssFiles.concat([
+	'client/dev/**/*.css'
+]);
 
 
 module.exports = function(grunt) {
