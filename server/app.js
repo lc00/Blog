@@ -10,7 +10,7 @@ var mongoose = require('mongoose');
 
 require('./api/config/passport');	
 
-mongoose.connect(process.env.MONGOHQ_URL || 'mongodb://localhost/blog');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/blog');
 
 var app = express();
 
