@@ -44,7 +44,13 @@ UserController.prototype.processLogin = function(req, res, next){
 			tokenCreatedTime: user.tokenCreatedTime
 		});
 	});
+	
 	authFunction(req, res, next);
+};
+
+UserController.prototype.facebookLogin = function(req, res, next){
+	console.log('FB works');
+	res.send('facebook login works');
 };
 
 UserController.prototype.getMyProfile = function(req, res, next){

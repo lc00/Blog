@@ -10,6 +10,8 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var BearerStrategy = require('passport-http-bearer').Strategy;
 
+var FacebookStrategy = require('passport-facebook').Strategy;
+
 // Since we will be using the user model to control access and
 // persistence, we'll use that as well.
 var User = require('../models/user');
@@ -17,6 +19,8 @@ var User = require('../models/user');
 var jwt = require('jwt-simple');
 var secret = 'oiUy7R&^%RIUYhoiut8iyts987tw4i5toeiurtghoiu';
 
+var FACEBOOK_APP_ID = '811000689006799';
+var FACEBOOK_APP_SECRET = '7b6a5196c8966cd8027ae00524a12df5';
 
 // SERIALIZATION:
 //  This small subset of code will take a user object, used
@@ -91,6 +95,23 @@ var bearerStrategy = new BearerStrategy(function(token, done){
   });
 });
 
+var facebookStrategy = new FacebookStrategy({
+    clientID: FACEBOOK_APP_ID,
+    clientSecret: FACEBOOK_APP_SECRET,
+    callbackURL: "http://localhost:7000/auth/facebook/callback",
+    enableProof: false
+  },
+  function(accessToken, refreshToken, profile, done) {
+    User.findOne({ facebookId: profile.id }, function (err, user) {
+      if(err) return done(err);
+      if(!user) return done(null, false);
+
+      return done(null, false);
+    });
+  }
+);
+
 passport.use(localStrategy);
 passport.use(bearerStrategy);
+passport.use(facebookStrategy);
 
