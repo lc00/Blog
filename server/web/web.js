@@ -11,7 +11,7 @@ var webRoutes = function(app){
 			root: __dirname + '../../client/' + clientDir,
 			dotfiles: 'deny'
 		};
-
+ 
     res.sendFile('index.html', options, function(err){
     	if(err) return res.sendStatus(err.status);
     	console.log('index.html is sent');
