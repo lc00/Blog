@@ -40,7 +40,7 @@ passport.deserializeUser(function(id, done){
     done(err, user);
   });
 });
-
+ 
 
 // Here we define the strategy for our local authentication.
 // This will be utilized by passport whenever we reference it.
