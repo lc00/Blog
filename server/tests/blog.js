@@ -7,13 +7,13 @@ describe('add blog', function(){
 		it('in adding blog', function(done){
 			api.post('/blog/add')
 				.send({
-					title: 'first blog',
-					content: 'contents of the first blog'
+					title: 'second blog',
+					content: 'contents of the second blog',
 				})
 				.expect(200)
 				.end(function(err, res){
 					if(err) return done(err);
-					res.body.title.should.be.equal('first blog');
+					res.body.title.should.be.equal('second blog');
 					done();
 				});
 		});

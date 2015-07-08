@@ -9,10 +9,7 @@ var blogSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
-	picture: {
-		type: String,
-		position: String
-	},
+	picture: String,
 	category: [String],
 	date: {
 		type: Date,

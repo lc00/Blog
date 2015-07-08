@@ -29,5 +29,5 @@ webRoutes(app);
 var port = process.env.PORT;
 
 var server = app.listen(port, function(){
-	console.log('this app is listening at http://localhost/' + port);
+	console.log('this app is listening at http://localhost:' + port);
 });
