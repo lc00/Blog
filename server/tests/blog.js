@@ -5,15 +5,24 @@ var api = supertest('http://localhost:7000/api/v1');
 describe('add blog', function(){
 	describe('should succeed', function(){
 		it('in adding blog', function(done){
-			api.post('/blog/add')
+			api.post('/blogs')
 				.send({
-					title: 'second blog',
-					content: 'contents of the second blog',
+					title: 'fourth blog',
+					content: 'contents of the fourth blog',
+					imageId: '9923589489034',
+					categories: ['fourth', 'blog']
 				})
-				.expect(200)
+				.expect(201)
 				.end(function(err, res){
 					if(err) return done(err);
-					res.body.title.should.be.equal('second blog');
+					res.body.title.should.be.equal('fourth blog');
+					res.body.content.should.be.equal('contents of the fourth blog');
+					res.body.imageId.should.be.equal('9923589489034');
+					res.body.categories[0].should.be.equal('fourth');
+					res.body.categories[1].should.be.equal('blog');
+					res.body.date.should.be.a('string');
+					// done is a callback that needs to be called to tell mocha that the 
+					// test is finished and move onto the next test
 					done();
 				});
 		});

@@ -38,7 +38,7 @@ UserController.prototype.processLogin = function(req, res, next){
 		// request method used. In a GET request, the response will contain an entity corresponding to the 
 		// requested resource. In a POST request, the response will contain an entity describing or containing 
 		// the result of the action.
-		res.status(200).send({
+		res.send({
 			username: user.username,
 			token:		user.token,
 			tokenCreatedTime: user.tokenCreatedTime
@@ -48,10 +48,10 @@ UserController.prototype.processLogin = function(req, res, next){
 	authFunction(req, res, next);
 };
 
-UserController.prototype.facebookLogin = function(req, res, next){
-	console.log('FB works');
-	res.send('facebook login works');
-};
+// UserController.prototype.facebookLogin = function(req, res, next){
+// 	console.log('FB works');
+// 	res.send('facebook login works');
+// };
 
 UserController.prototype.getMyProfile = function(req, res, next){
 	

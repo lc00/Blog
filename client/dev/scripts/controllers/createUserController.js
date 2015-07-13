@@ -2,7 +2,7 @@
 	var createUserController = function($scope, $http){
 		$scope.signUp = function(user){
 			$http
-				.post('/api/v1/user/signUp', {
+				.post('/api/v1/users/signUp', {
 					username: user.username,
 					email: user.email,
 					password: user.password

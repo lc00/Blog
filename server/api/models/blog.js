@@ -9,16 +9,14 @@ var blogSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
-	picture: String,
-	category: [String],
+	imageId: String,
+	categories: [String],
 	date: {
 		type: Date,
 		default: function(){
 			return new Date();
 		}
-	},
-	comment: String
-
+	}
 });
 
 var Blog = mongoose.model('blog', blogSchema);
