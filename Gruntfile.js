@@ -47,18 +47,20 @@ module.exports = function(grunt) {
 					spawn: false
 				}
 			},
-			clientTests: {
-				files: ['client/dev/tests/**/*.js'],
-				tasks: ['jshint:clientTests'],
-				options: {
-					spawn: false
-				}
-			},
-			
+			// clientTests: {
+			// 	files: ['client/dev/tests/**/*.js'],
+			// 	tasks: ['jshint:clientTests'],
+			// 	options: {
+			// 		spawn: false
+			// 	}
+			// },	
 			// server is a sub-task of watch
 			server: {
-				files: ['server/**/*.js'],
-				// perform jshint on all the .js files under server, restart server under dev environment
+				files: [
+					'server/**/*.js'
+			  ],
+				// perform jshint on all the .js files under server
+				//restart server under dev environment
 				tasks: [
 					'jshint:server',
 				  'express:dev'
@@ -66,22 +68,25 @@ module.exports = function(grunt) {
 				options: {
 					spawn: false,
 				}
-			},
-			serverTests: {
-				files: ['server/tests/**/*.js'],
-				tasks: ['jshint:serverTests'],
-				options: {
-					spawn: false
-				}
 			}
+			// serverTests: {
+			// 	files: ['server/tests/**/*.js'],
+			// 	tasks: [
+			// 		'jshint:serverTests',
+			// 		'express:dev'
+			// 	],
+			// 	options: {
+			// 		spawn: false
+			// 	},
+			// }
 		},
 		jshint: {
 			all: ['Gruntfile.js', 'client/dev/**/*.js', 'server/**/*.js'],
 			gruntfile: ['Gruntfile.js'],
 			client: ['client/dev/**/*.js'],
-			clientTests: ['client/dev/tests/**/*.js'],
-			server: ['server/**/*.js'],
-			serverTests: ['server/tests/**/*.js']
+			// clientTests: ['client/dev/tests/**/*.js'],
+			server: ['server/**/*.js']
+			// serverTests: ['server/tests/**/*.js']
 		},
 		// sails-linker injects html tags 
 		'sails-linker': {

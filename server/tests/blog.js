@@ -1,11 +1,11 @@
 var supertest = require('supertest');
 var should = require('chai').should();
-var api = supertest('http://localhost:7000/api/v1');
+var api = supertest('http://localhost:7000/api/v1/blogs');
 
 describe('add blog', function(){
 	describe('should succeed', function(){
 		it('in adding blog', function(done){
-			api.post('/blogs')
+			api.post('')
 				.send({
 					title: 'fourth blog',
 					content: 'contents of the fourth blog',
@@ -28,3 +28,60 @@ describe('add blog', function(){
 		});
 	});
 });
+
+describe('GET All blogs', function(){
+	describe('should succeed', function(){
+		it('in getting all blogs', function(done){
+			api.get('')
+				.expect(200)
+				.end(function(err, res){
+					if(err) return done(err);
+					res.body[1].title.should.be.equal('fourth blog');
+					res.body[2].title.should.be.equal('fourth blog');
+					done();
+				});
+		});
+	});
+});
+
+describe('PUT a blog', function(){
+	describe('should succeed', function(){
+		it('in updating the blog', function(done){
+			api.put('/55a6874b861b11411e25d316')
+				.expect(200)
+				.end(function(err, res){
+					if(err) return done(err);
+					res.body.title.should.be.equal('updated fourth blog');
+					done();
+				});
+		});
+	});
+});
+
+describe('GET latest blog', function(){
+	describe('should succeed', function(){
+		it('in getting the blog', function(done){
+			api.get('/latest')
+				.expect(200)
+				.end(function(err, res){
+					if(err) return done(err);
+					res.body.title.should.be.equal('fourth blog');
+					done();
+				});
+		});
+	});
+});
+
+
+// describe('DELETE All blogs', function(){
+// 	describe('should succeed', function(){
+// 		it('in deleting all blogs', function(done){
+// 			api.delete('/all')
+// 				.expect(200)
+// 				.end(function(err, res){
+// 					if(err) return done(err);
+// 					done();
+// 				});
+// 		});
+// 	});
+// });
