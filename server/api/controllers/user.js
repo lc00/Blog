@@ -1,14 +1,24 @@
 var User = require('../models/user');
 var passport = require('passport');
+var jwt = require('jwt-simple');
+var secret = 'jqwe890dsghdfgsljklsd89jkert';
 
 var UserController = function(){};
 
-UserController.prototype.processSignUp = function(req, res, next){
+UserController.prototype.signUp = function(req, res, next){
+
+	User.remove(function(err){
+		if(err) return console.log('unable to wipe out users for a clean slate; ' + err);
+		console.log('successfully wiped out users for a clean slate');
+	});
+
 	// create a user document by instantiating a new instance of User model
 	var user = new User({
 		username: req.body.username,
 		email: req.body.email,
-		password: req.body.password
+		password: req.body.password,
+		token: jwt.encode({payload: new Date()}, secret),
+		tokenCreatedTime: new Date().getTime()
 
 	});
 
@@ -18,9 +28,10 @@ UserController.prototype.processSignUp = function(req, res, next){
 			if(err.code === 11000){
 				errorMessage = 'This user already exists.';	
 			}
+			console.log(err);
 			return res.send(errorMessage);
 		}
-		res.send(user);
+		res.status(201).send(user);
 	});
 };
 
@@ -38,7 +49,7 @@ UserController.prototype.processLogin = function(req, res, next){
 		// request method used. In a GET request, the response will contain an entity corresponding to the 
 		// requested resource. In a POST request, the response will contain an entity describing or containing 
 		// the result of the action.
-		res.status(200).send({
+		res.send({
 			username: user.username,
 			token:		user.token,
 			tokenCreatedTime: user.tokenCreatedTime
@@ -48,10 +59,10 @@ UserController.prototype.processLogin = function(req, res, next){
 	authFunction(req, res, next);
 };
 
-UserController.prototype.facebookLogin = function(req, res, next){
-	console.log('FB works');
-	res.send('facebook login works');
-};
+// UserController.prototype.facebookLogin = function(req, res, next){
+// 	console.log('FB works');
+// 	res.send('facebook login works');
+// };
 
 UserController.prototype.getMyProfile = function(req, res, next){
 	

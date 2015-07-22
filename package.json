@@ -4,7 +4,7 @@
   "description": "blog",
   "main": "app.js",
   "scripts": {
-    "test": "mocha server/tests/server.js",
+    "test": "mocha server/tests",
     "start": "node server/app.js"
   },
   "author": "",
@@ -13,7 +13,9 @@
     "bcrypt": "^0.8.3",
     "body-parser": "^1.12.3",
     "express": "^4.12.3",
+    "fs": "0.0.2",
     "jwt-simple": "^0.3.0",
+    "lodash": "^3.10.0",
     "mongoose": "^4.0.2",
     "morgan": "^1.5.2",
     "passport": "^0.2.1",

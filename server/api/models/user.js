@@ -19,12 +19,10 @@ var userSchema = mongoose.Schema({
 		unique: false
 	},
 	token: {
-		type: String,
-		unique: true
+		type: String
 	},
 	tokenCreatedTime: {
-		type: Number,
-		unique: true
+		type: Number
 	}		
 
 });
