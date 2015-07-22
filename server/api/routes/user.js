@@ -4,7 +4,7 @@ var passport = require('passport');
 var userController = new UserController();
 
 var userRoutes = function(app){
-	app.post('/api/v1/users/signUp', userController.processSignUp);
+	app.post('/api/v1/users', userController.signUp);
 	app.post('/api/v1/users/login', userController.processLogin);
 	app.post('/api/v1/users/logout', userController.processLogout);
 	
