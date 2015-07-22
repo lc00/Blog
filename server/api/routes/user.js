@@ -5,8 +5,8 @@ var userController = new UserController();
 
 var userRoutes = function(app){
 	app.post('/api/v1/users', userController.signUp);
-	app.post('/api/v1/users/login', userController.processLogin);
-	app.post('/api/v1/users/logout', userController.processLogout);
+	app.post('/api/v1/users/login', userController.login);
+	// app.post('/api/v1/users/logout', userController.logout);
 	
 	// app.get('api/v1/users/:token', userController.getOne);
 

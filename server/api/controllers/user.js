@@ -7,10 +7,10 @@ var UserController = function(){};
 
 UserController.prototype.signUp = function(req, res, next){
 
-	User.remove(function(err){
-		if(err) return console.log('unable to wipe out users for a clean slate; ' + err);
-		console.log('successfully wiped out users for a clean slate');
-	});
+	// User.remove(function(err){
+	// 	if(err) return console.log('unable to wipe out users for a clean slate; ' + err);
+	// 	console.log('successfully wiped out users for a clean slate');
+	// });
 
 	// create a user document by instantiating a new instance of User model
 	var user = new User({
@@ -35,7 +35,7 @@ UserController.prototype.signUp = function(req, res, next){
 	});
 };
 
-UserController.prototype.processLogin = function(req, res, next){
+UserController.prototype.login = function(req, res, next){
 	var authFunction = passport.authenticate('local', function(err, user, info){
 		if(err) return next(err);
 		//400 Bad Request
@@ -69,9 +69,9 @@ UserController.prototype.getMyProfile = function(req, res, next){
 	res.send('token works');
 };
 
-UserController.prototype.processLogout = function(req, res, next){
-	res.send('user is logged out');
+// UserController.prototype.logout = function(req, res, next){
+// 	req.body.
 
-};
+// };
 
 module.exports = UserController;

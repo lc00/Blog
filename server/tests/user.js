@@ -27,28 +27,6 @@ describe('POST user sign-up', function(){
 	});
 });
 
-describe('POST user sign-up', function(){
-	describe('should succeed', function(){
-		it('in signing up', function(done){
-			api.post('')
-				.send({
-					username: 'a',
-					email: 'a',
-					password: 'a'
-				})
-				.expect(201)
-				.end(function(err, res){
-					if(err) return done(err);
-					res.body.username.should.be.equal('a');
-					res.body.email.should.be.equal('a');					
-					done();
-				});
-
-		});
-	});
-});
-
-
 describe('POST user login information', function(){
 	describe('should succeed', function(){
 		it('in logging in', function(done){
@@ -60,13 +38,31 @@ describe('POST user login information', function(){
 				.expect(200)
 				.end(function(err, res){
 					if(err) return done(err);
-					res.body.username.should.be.equal('a');
+					res.body.username.should.be.equal('a');			
 					done();
 				});
 		});
-	});
+	});		
 
 });
 
+// describe('POST user logout information', function(){
+// 	describe('should succeed', function(){
+// 		it('in logging out', function(done){
+// 			api.post('/logout')
+// 				.send({
+// 					username: 'a',
+// 					password: 'a'
+// 				})
+// 				.expect(200)
+// 				.end(function(err, res){
+// 					if(err) return done(err);
+// 					res.body.username.should.be.equal('a');
+// 					done();
+// 				});
+// 		});
+// 	});
+
+// });
 
 

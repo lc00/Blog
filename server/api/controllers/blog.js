@@ -4,7 +4,6 @@ var Category = require('../models/category');
 var fs = require('fs');
 var clientDir = process.env.CLIENT_DIR;
 var moment = require('moment');
-var _ = require('lodash');
 
 var BlogController = function(){};
 
@@ -95,7 +94,6 @@ BlogController.prototype.update = function(req, res, next){
 };
 
 BlogController.prototype.delete = function(req, res, next){
-	// var query = {_id: req.params.id};
 	Blog.findByIdAndRemove(req.params.id, function(err, blog){
 		if(err) return next(err);
 		res.sendStatus(200);

@@ -5,6 +5,7 @@ var passport = require('passport');
 var webRoutes = require('./web/web');
 var userRoutes = require('./api/routes/user');
 var blogRoutes = require('./api/routes/blog');
+var commentRoutes = require('./api/routes/comment');
 
 
 var mongoose = require('mongoose');
@@ -22,6 +23,7 @@ app.use(passport.initialize());
 
 userRoutes(app);
 blogRoutes(app);
+commentRoutes(app);
 webRoutes(app);
 
 
