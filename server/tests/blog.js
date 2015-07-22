@@ -61,8 +61,8 @@ describe('GET All blogs', function(){
 				.expect(200)
 				.end(function(err, res){
 					if(err) return done(err);
-					res.body[2].title.should.be.equal('first blog');
-					res.body[3].title.should.be.equal('fourth blog');
+					res.body[1].title.should.be.equal('first blog');
+					res.body[2].title.should.be.equal('fourth blog');
 					done();
 				});
 		});
