@@ -44,34 +44,6 @@ describe('GET All blogs', function(){
 	});
 });
 
-describe('PUT a blog', function(){
-	describe('should succeed', function(){
-		it('in updating the blog', function(done){
-			api.put('/55ad623cd6b831d01a7f2651')
-				.expect(200)
-				.end(function(err, res){
-					if(err) return done(err);
-					res.body.title.should.be.equal('happy with myself');
-					done();
-				});
-		});
-	});
-});
-
-describe('GET latest blog', function(){
-	describe('should succeed', function(){
-		it('in getting the latest blog', function(done){
-			api.get('/latest')
-				.expect(200)
-				.end(function(err, res){
-					if(err) return done(err);
-					res.body.title.should.be.equal('fourth blog');
-					done();
-				});
-		});
-	});
-});
-
 describe('GET one blog', function(){
 	describe('should succeed', function(){
 		it('in getting one blog', function(done){
@@ -86,44 +58,29 @@ describe('GET one blog', function(){
 	});
 });
 
-describe('GET next blog', function(){
+describe('PUT a blog', function(){
 	describe('should succeed', function(){
-		it('in getting the next blog', function(done){
-			api.get('/next/55ad623cd6b831d01a7f2651')
+		it('in updating the blog', function(done){
+			api.put('/55ad623cd6b831d01a7f2651')
 				.expect(200)
 				.end(function(err, res){
 					if(err) return done(err);
-					res.body.title.should.be.equal('fourth blog');
+					res.body.title.should.be.equal('happy with myself');
 					done();
 				});
 		});
 	});
 });
 
-describe('GET previous blog', function(){
-	describe('should succeed', function(){
-		it('in getting the previous blog', function(done){
-			api.get('/prev/55ad623cd6b831d01a7f2651')
-				.expect(200)
-				.end(function(err, res){
-					if(err) return done(err);
-					res.body.title.should.be.equal('fourth blog');
-					done();
-				});
-		});
-	});
-});
-
-
-describe('DELETE a blog', function(){
-	describe('should succeed', function(){
-		it('in deleting a blog', function(done){
-			api.delete('/55ad6a686a34966e1c09bc5e')
-				.expect(200)
-				.end(function(err, res){
-					if(err) return done(err);
-					done();
-				});
-		});
-	});
-});
+// describe('DELETE a blog', function(){
+// 	describe('should succeed', function(){
+// 		it('in deleting a blog', function(done){
+// 			api.delete('/55ad62b4d6b831d01a7f2654')
+// 				.expect(200)
+// 				.end(function(err, res){
+// 					if(err) return done(err);
+// 					done();
+// 				});
+// 		});
+// 	});
+// });
